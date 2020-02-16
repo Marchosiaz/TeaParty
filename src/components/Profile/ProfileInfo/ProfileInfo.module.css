@@ -1,0 +1,55 @@
+.posts {
+  margin: 5px; 
+}
+.butt {
+  text-decoration: none;
+  outline: none;
+  margin-right: 5px;
+  display: inline-block;
+  overflow: hidden;
+  border: 2px solid;
+  border-bottom-width: 4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: rgba(30,255,188,1);
+  background: rgba(255,255,255,1);
+  transition: color .3s, background .5s;
+}
+.butt:hover {
+  animation: stripes .75s infinite linear;
+  background: linear-gradient(45deg, rgba(30,255,188,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 50%, rgba(30,255,188,1) 50%,      rgba(30,255,188,1) 75%, rgba(255,255,255,1) 75%, rgba(255,255,255,1));
+  background-size: 10px 10px;
+  color: #FF50E5;
+}
+.butt2 {
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  overflow: hidden;
+  border: 2px solid;
+  border-bottom-width: 4px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: rgba(30,255,188,1);
+  background: rgba(255,255,255,1);
+  transition: color .3s, background .5s;
+}
+.butt2:hover {
+  animation: stripes .75s infinite linear;
+  background: linear-gradient(45deg, rgba(30,255,188,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 50%, rgba(30,255,188,1) 50%,      rgba(30,255,188,1) 75%, rgba(255,255,255,1) 75%, rgba(255,255,255,1));
+  background-size: 10px 10px;
+  color: #FF50E5;
+}
+@keyframes stripes {
+  0% {background-position: 0 0;}
+  100% {background-position: 50px 0;}
+}
+.textarea {
+  width: 99%;
+  height: 150px;
+  resize: none;
+}

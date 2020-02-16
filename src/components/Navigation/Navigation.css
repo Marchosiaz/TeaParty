@@ -1,0 +1,25 @@
+/*Navigation*/
+.nav {
+  grid-area: n;
+  background-color: #DC143C;
+}
+
+.nav a {
+  text-decoration-line: none;
+  color: white;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 15px 25px;
+  padding: 15px 20px;
+  font-size: 21px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.4s ease-in-out;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+.nav a:hover {
+  font-size: 22px;
+  color: gold;
+}

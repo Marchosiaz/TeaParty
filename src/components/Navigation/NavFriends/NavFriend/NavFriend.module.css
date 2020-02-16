@@ -1,0 +1,15 @@
+.NavFriend {
+	float: left;
+	padding-left: 6px;
+}
+
+.first {
+	margin-top: 20px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.name {
+	font-size: 12px;
+}

@@ -1,0 +1,9 @@
+/*Header*/
+.header {
+  grid-area: h;
+  background-color: #DC143C;
+}
+.header img {
+  width: 205px;
+  height: 80px;
+}
