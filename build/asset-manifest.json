@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/TeaParty/static/css/main.f4958c22.chunk.css",
+    "main.js": "/TeaParty/static/js/main.7a3f9017.chunk.js",
+    "main.js.map": "/TeaParty/static/js/main.7a3f9017.chunk.js.map",
+    "runtime-main.js": "/TeaParty/static/js/runtime-main.011c4895.js",
+    "runtime-main.js.map": "/TeaParty/static/js/runtime-main.011c4895.js.map",
+    "static/js/2.51d471b6.chunk.js": "/TeaParty/static/js/2.51d471b6.chunk.js",
+    "static/js/2.51d471b6.chunk.js.map": "/TeaParty/static/js/2.51d471b6.chunk.js.map",
+    "index.html": "/TeaParty/index.html",
+    "precache-manifest.d8d267803151fbe278a486f1df26c3a0.js": "/TeaParty/precache-manifest.d8d267803151fbe278a486f1df26c3a0.js",
+    "service-worker.js": "/TeaParty/service-worker.js",
+    "static/css/main.f4958c22.chunk.css.map": "/TeaParty/static/css/main.f4958c22.chunk.css.map",
+    "static/js/2.51d471b6.chunk.js.LICENSE.txt": "/TeaParty/static/js/2.51d471b6.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/TeaParty/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.011c4895.js",
+    "static/js/2.51d471b6.chunk.js",
+    "static/css/main.f4958c22.chunk.css",
+    "static/js/main.7a3f9017.chunk.js"
+  ]
+}
