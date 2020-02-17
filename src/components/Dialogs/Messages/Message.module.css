@@ -17,3 +17,6 @@
 	position: relative;
 	float: left;
 }
+.messages {
+	padding-bottom: 15px;  
+}

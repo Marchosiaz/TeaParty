@@ -9,7 +9,7 @@ let rerenderEntireTree = () => {
 	ReactDOM.render(<App 
 		state={store.getState()} 
 		dispatch={store.dispatch.bind(store)} 
-		newMessage={store.getState().dialogsPage.newMessage}   
+		myMessage={store.getState().dialogsPage.myMessage}   
 		newPostText={store.getState().profilePage.newPostText}/>, document.getElementById('root'));	
 }
 

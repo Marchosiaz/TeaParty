@@ -1,6 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
+import profileReducer from './profileReducer.js'
+import dialogsReducer from './dialogsReducer.js'
 
 
 let store = {
@@ -16,7 +15,7 @@ let store = {
 
 		dialogsPage: {
 
-		newMessage: '',
+		myMessage: '',
 
 		dialogs: [
 		{id: 22, name: 'Tyoma22', ava:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH'},
@@ -25,7 +24,11 @@ let store = {
 		{id: 10, name: 'Tyoma0', ava:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQIrnwobOPcbnVXb1dv_CyabhKNzaOd1r9QBw8CyFljH-NEvkJ_'},],
 
 		messages: [
-		{reply: 'Hello, I am ur daddy', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH'},],
+		{reply: 'Hello, I am ur daddy', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH'},
+		{reply: 'Kek', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH'}],
+
+		myMessages: [
+		{reply: 'KEkie', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6xb4svS2NCAlQUGXmFOF6VVvDycCD6EApj2zhEZ7Syv5Ig9l3'},],
 
 		},
 
@@ -42,29 +45,13 @@ let store = {
 	getState() {return this._state},
 
 	dispatch(action) {
-		if (action.type === ADD_POST) {
-				let newpost = {
-				id: 32,
-				message: this._state.profilePage.newPostText,
-				countLike: 0}
-			this._state.profilePage.posts.push(newpost)
-			this._state.profilePage.newPostText = ''
-			this._callSubscriber()} 
-		else if (action.type === UPDATE_NEW_POST_TEXT) {
-			this._state.profilePage.newPostText = action.text
-			this._callSubscriber()} 
-		else if (action.type === ADD_NEW_MESSAGE) {
-			this._state.dialogsPage.newMessage = action.message
-			this._callSubscriber()}
+		this._state.profilePage = profileReducer(this._state.profilePage, action)
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+
+		this._callSubscriber()
 	},
 
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, text: text})
-
-export const addNewMessageActionCreator = (message) => ({type: ADD_NEW_MESSAGE, message: message})
 
 
 export default store

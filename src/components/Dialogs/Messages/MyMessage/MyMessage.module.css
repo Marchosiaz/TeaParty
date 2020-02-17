@@ -1,0 +1,33 @@
+.ava {
+	margin-top: 15px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	position: absolute;
+	float: right;
+}
+
+.reply {
+	position: relative;
+	min-height: 40px;
+	height: auto;
+	min-width: 100px;
+	max-width: 100px;
+	display: inline;
+	padding: 10px;
+	font-size: 14px;
+	text-align: left;
+	border: 2px solid #4169E1;
+	background-color: #4169E1;
+	margin-left: 90%;
+	margin-right: 135px;
+	float: right;
+	overflow-x: hidden;
+}
+
+.myMessage {
+	padding-bottom: 15px;
+	position: relative;
+	display: inline-block;
+	margin-left: 77%;
+}

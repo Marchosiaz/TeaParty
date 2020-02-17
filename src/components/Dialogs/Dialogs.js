@@ -5,10 +5,11 @@ import DialogsItem from './User_dialogs/DialogsItem.js'
 import Messages from './Messages/Messages.js'
 
 const Dialogs = (props) => {
+	console.log(props)
 	return (
 		<div className={s.dialogs}>
 			<DialogsItem dialogs={props.dialogs}/>
-			<Messages dispatch={props.dispatch} newMessage={props.newMessage} messages={props.messages}/>
+			<Messages dispatch={props.dispatch} myMessages={props.myMessages} myMessage={props.myMessage} messages={props.messages}/>
 		</div>
 	)
 }
