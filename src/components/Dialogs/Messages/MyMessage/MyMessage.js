@@ -2,7 +2,6 @@ import React from 'react'
 import s from './MyMessage.module.css'
 
 const MyMessage = (props) => {
-	console.log(props)
 	return (
 		<div className={s.myMessage}>
 			<img className={s.ava} src={props.ava}/>

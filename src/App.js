@@ -11,23 +11,24 @@ import Settings from './components/Settings/Settings.js'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 const App = (props) => {
+  console.log(props)
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navigation navFriends={props.state.navFriends}/>
+        <Navigation navFriends={props.state.navigationReducer.navFriends}/>
         <div className='app-wrapper-content'>
       		<Route exact path='/profile' render={() => <Profile 
             dispatch={props.dispatch} 
-            newPostText={props.newPostText}
-            posts={props.state.profilePage.posts}/>}/>
+            newPostText={props.state.profileReducer.newPostText}
+            posts={props.state.profileReducer.posts}/>}/>
           <Route path='/dialogs' render={() => 
             <Dialogs 
-            myMessage={props.myMessage}
-            myMessages={props.state.dialogsPage.myMessages} 
+            myMessage={props.state.dialogsReducer.myMessage}
+            myMessages={props.state.dialogsReducer.myMessages} 
             dispatch={props.dispatch} 
-            dialogs={props.state.dialogsPage.dialogs} 
-            messages={props.state.dialogsPage.messages}/>}/>
+            dialogs={props.state.dialogsReducer.dialogs} 
+            messages={props.state.dialogsReducer.messages}/>}/>
           <Route path='/news' render={() => <News />}/>
           <Route path='/music' render={() => <Music />}/>
           <Route path='/settings' render={() => <Settings />}/>
