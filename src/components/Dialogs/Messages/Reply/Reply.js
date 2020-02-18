@@ -1,24 +1,22 @@
-import React from 'react'
-import s from './Reply.module.css'
-import {recordingNewMessageActionCreator, addNewMessage} from './../../../../redux/dialogsReducer.js'
+import React from 'react';
+import s from './Reply.module.css';
 
 const Reply = (props) => {
 	let newReplyElement = React.createRef();
-	let f = () => {
-		let text = newReplyElement.current.value;
-		props.dispatch(addNewMessage())
-	}
+	let recordMessage = () => {
+		props.recordingNewMessage();
+	};
 
-	let addMessage = () => {
+	let onAddMessage = () => {
 		let text = newReplyElement.current.value;
-		props.dispatch(recordingNewMessageActionCreator(text))
-	}
+		props.addMessage(text);
+	};
 	return (
 		<div className={s.reply}>
-			<textarea onChange={addMessage} value={props.myMessage} ref={newReplyElement} className={s.text}/>
-			<div><button onClick={f} className={s.button}>Send</button></div>
+			<textarea onChange={onAddMessage} value={props.myMessage} ref={newReplyElement} className={s.text}/>
+			<div><button onClick={recordMessage} className={s.button}>Send</button></div>
 		</div>
 	)
-}
+};										
 
-export default Reply
+export default Reply;

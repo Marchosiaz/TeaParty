@@ -7,8 +7,11 @@ import Messages from './Messages/Messages.js'
 const Dialogs = (props) => {
 	return (
 		<div className={s.dialogs}>
-			<DialogsItem dialogs={props.dialogs}/>
-			<Messages dispatch={props.dispatch} myMessages={props.myMessages} myMessage={props.myMessage} messages={props.messages}/>
+			<DialogsItem dialogs={props.store.dialogsReducer.dialogs}/>
+			<Messages dispatch={props.dispatch} 
+			myMessages={props.store.dialogsReducer.myMessages} 
+			myMessage={props.store.dialogsReducer.myMessage} 
+			messages={props.store.dialogsReducer.messages}/>
 		</div>
 	)
 }

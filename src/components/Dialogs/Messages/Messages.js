@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Messages.module.css'
 import Message from './Message.js'
-import Reply from './Reply/Reply.js'
+import ReplyContainer from './Reply/ReplyContainer.js'
 import MyMessage from './MyMessage/MyMessage.js'
 
 const Messages = (props) => {
@@ -12,7 +12,7 @@ const Messages = (props) => {
 		<div className={s.messages}>
 			{m}
 			{myReply}
-			<Reply myMessage={props.myMessage} dispatch={props.dispatch} />
+			<ReplyContainer myMessage={props.myMessage} dispatch={props.dispatch} />
 		</div>
 	)
 }

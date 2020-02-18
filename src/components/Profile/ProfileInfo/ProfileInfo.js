@@ -1,16 +1,19 @@
-import React from 'react'
-import s from './ProfileInfo.module.css'
-import {addPostActionCreator, updateNewPostTextActionCreator} from './../../../redux/profileReducer.js'
+import React from 'react';
+import s from './ProfileInfo.module.css';
+import {addPostActionCreator, updateNewPostTextActionCreator} from './../../../redux/profileReducer.js';
+
 
 const ProfileInfo = (props) => {
+
 	let newPostElement = React.createRef();
-	let addPost = () => {
-		props.dispatch(addPostActionCreator())
+
+	let onaddPost = () => {
+		props.addPost()
 	}
 
 	let onPostChange = () => {
-		let text =newPostElement.current.value
-		props.dispatch(updateNewPostTextActionCreator(text))
+		let text = newPostElement.current.value
+		props.updateNewPostText(text)
 	}
 	return (
 		<div className={s.posts}>
@@ -19,7 +22,7 @@ const ProfileInfo = (props) => {
 			<div className={s.text}>
 			<textarea onChange={onPostChange} className={s.textarea} ref={newPostElement} value={props.newPostText}/>
 				<div className={s.divButt}>
-					<button onClick={addPost} className={s.butt}>Add post</button>
+					<button onClick={onaddPost} className={s.butt}>Add post</button>
 					<button className={s.butt2}>Remove</button>
 				</div>
 			</div>
