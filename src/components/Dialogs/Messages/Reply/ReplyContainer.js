@@ -1,20 +1,40 @@
-import React from 'react'
-import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './../../../../redux/dialogsReducer.js'
-import Reply from './Reply.js'
+import React from 'react';
+import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './../../../../redux/dialogsReducer.js';
+import Reply from './Reply.js';
+import {connect} from 'react-redux';
 
-const ReplyContainer = (props) => {
-	//This function record text
-	let f = () => {
-		props.dispatch(addNewMessageActionCreator())
+
+let mapStateToProps = (state) => {
+	return {
+		myMessage: state.dialogsPage.myMessage,
 	}
+};
 
-	//This function add text to store 
-	let onAddMessage = (text) => {
-		props.dispatch(recordingNewMessageActionCreator(text))
+let mapDispatchToProps = (dispatch) => {
+	return {
+		recordingNewMessage: () => {dispatch(addNewMessageActionCreator())},
+		addMessage: (text) => {dispatch(recordingNewMessageActionCreator(text))},
 	}
-	return (
-		<Reply recordingNewMessage={f} addMessage={onAddMessage} myMessage={props.myMessage}/>
-	)
-}
+};
 
-export default ReplyContainer
+
+const ReplyContainer = connect(mapStateToProps, mapDispatchToProps)(Reply);
+
+export default ReplyContainer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

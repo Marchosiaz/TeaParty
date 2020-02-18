@@ -5,10 +5,10 @@ import NavFriend from './NavFriend/NavFriend.js'
 const NavFriends = (props) => {
 	let f = props.navFriends.map(el => <NavFriend ava={el.ava} name={el.name}/>)
 	return (
-		<div className={s.NavFriends}>
-			<div>Friends:</div>
-			{f}
-		</div>
+			<div className={s.NavFriends}>
+				<div>Friends:</div>
+				{f}
+			</div>
 	)
 }
 

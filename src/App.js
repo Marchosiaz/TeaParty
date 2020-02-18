@@ -15,10 +15,10 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navigation navFriends={props.store.navigationReducer.navFriends}/>
+        <Navigation />
         <div className='app-wrapper-content'>
-      		<Route exact path='/profile' render={() => <Profile dispatch={props.dispatch} store={props.store}/>}/>
-          <Route path='/dialogs' render={() => <Dialogs dispatch={props.dispatch} store={props.store}/>}/>
+      		<Route exact path='/profile' render={() => <Profile />}/>
+          <Route path='/dialogs' render={() => <Dialogs />}/>
           <Route path='/news' render={() => <News />}/>
           <Route path='/music' render={() => <Music />}/>
           <Route path='/settings' render={() => <Settings />}/>

@@ -4,9 +4,9 @@ import dialogsReducer from './dialogsReducer.js';
 import navigationReducer from './NavigationReducer.js';
 
 let reducersBunch = combineReducers({
-	profileReducer,
-	dialogsReducer,
-	navigationReducer,
+	profilePage: profileReducer,
+	dialogsPage: dialogsReducer,
+	navPage: navigationReducer,
 });
 
 let store = createStore(reducersBunch);
