@@ -4,7 +4,7 @@ import s from './DialogsItem.module.css'
 import Dialogitem from './DialogItem.js'
 
 const Dialogsitem = (props) => {
-	let d = props.dialogs.map(el => <Dialogitem name={el.name} id={el.id} ava={el.ava}/>)
+	let d = props.dialogs.map(el => <Dialogitem name={el.name} key={el.id} ava={el.ava}/>)
 
 	return (
 			<div className={s.user_dialogs}>

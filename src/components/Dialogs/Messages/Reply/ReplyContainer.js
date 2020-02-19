@@ -11,8 +11,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		recordingNewMessage: () => {dispatch(addNewMessageActionCreator())},
-		addMessage: (text) => {dispatch(recordingNewMessageActionCreator(text))},
+		addMessage: () => {dispatch(addNewMessageActionCreator())},
+		recordingNewMessage: (text) => {dispatch(recordingNewMessageActionCreator(text))},
 	}
 };
 

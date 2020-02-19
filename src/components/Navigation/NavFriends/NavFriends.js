@@ -3,7 +3,7 @@ import s from './NavFriends.module.css'
 import NavFriend from './NavFriend/NavFriend.js'
 
 const NavFriends = (props) => {
-	let f = props.navFriends.map(el => <NavFriend ava={el.ava} name={el.name}/>)
+	let f = props.navFriends.map(el => <NavFriend ava={el.ava} key={el.id} name={el.name}/>)
 	return (
 			<div className={s.NavFriends}>
 				<div>Friends:</div>

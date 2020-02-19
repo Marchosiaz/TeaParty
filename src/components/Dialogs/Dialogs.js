@@ -5,7 +5,6 @@ import DialogsItemContainer from './User_dialogs/DialogsItemContainer.js';
 import MessagesContainer from './Messages/MessagesContainer.js';
 
 const Dialogs = (props) => {
-	console.log(props)
 	return (
 		<div className={s.dialogs}>
 			<DialogsItemContainer/>

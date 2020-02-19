@@ -3,18 +3,19 @@ import s from './Reply.module.css';
 
 const Reply = (props) => {
 	let newReplyElement = React.createRef();
+
 	let recordMessage = () => {
-		props.recordingNewMessage();
+		let text = newReplyElement.current.value;
+		props.recordingNewMessage(text);
 	};
 
 	let onAddMessage = () => {
-		let text = newReplyElement.current.value;
-		props.addMessage(text);
+		props.addMessage();
 	};
 	return (
 		<div className={s.reply}>
-			<textarea onChange={onAddMessage} value={props.myMessage} ref={newReplyElement} className={s.text}/>
-			<div><button onClick={recordMessage} className={s.button}>Send</button></div>
+			<textarea onChange={recordMessage} value={props.myMessage} ref={newReplyElement} className={s.text}/>
+			<div><button onClick={onAddMessage} className={s.button}>Send</button></div>
 		</div>
 	)
 };										
