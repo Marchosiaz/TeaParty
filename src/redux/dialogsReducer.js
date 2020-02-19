@@ -1,5 +1,5 @@
-const RECORDING_NEW_MESSAGE_TO_STORE = 'RECORDING-NEW-MESSAGE-TO-STORE'
-const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE'
+const RECORDING_NEW_MESSAGE_TO_STORE = 'RECORDING-NEW-MESSAGE-TO-STORE';
+const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
 
 let initialState = {
 	myMessage: '',
@@ -17,23 +17,28 @@ let initialState = {
 		myMessages: [
 		{reply: 'KEkie', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6xb4svS2NCAlQUGXmFOF6VVvDycCD6EApj2zhEZ7Syv5Ig9l3'},],		
 
-}
+};
 
 
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case RECORDING_NEW_MESSAGE_TO_STORE:
-			state.myMessage = action.message
-			return state
-		case ADD_MY_MESSAGE:
-			let body = state.myMessage
-			state.myMessages.push({reply: body, ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6xb4svS2NCAlQUGXmFOF6VVvDycCD6EApj2zhEZ7Syv5Ig9l3'})
-			state.myMessage = ''
-			return state
+		case RECORDING_NEW_MESSAGE_TO_STORE: {
+			let stateCopy = {...state}
+			stateCopy.myMessage = action.message;
+			return stateCopy;
+		}
+		case ADD_MY_MESSAGE: {
+			let stateCopy = {...state};
+			stateCopy.myMessages = [...state.myMessages];
+			let body = stateCopy.myMessage;
+			stateCopy.myMessages.push({reply: body, ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6xb4svS2NCAlQUGXmFOF6VVvDycCD6EApj2zhEZ7Syv5Ig9l3'});
+			stateCopy.myMessage = '';
+			return stateCopy;
+		}
 		default:
-			return state
-	}
-}
+			return state;
+	};
+};
 
 
 export const recordingNewMessageActionCreator = (message) => ({type: RECORDING_NEW_MESSAGE_TO_STORE, message: message})

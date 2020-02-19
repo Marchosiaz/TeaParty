@@ -3,7 +3,6 @@ import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './..
 import Reply from './Reply.js';
 import {connect} from 'react-redux';
 
-
 let mapStateToProps = (state) => {
 	return {
 		myMessage: state.dialogsPage.myMessage,
