@@ -1,5 +1,5 @@
 import React from 'react';
-import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './../../../../redux/dialogsReducer.js';
+import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './../../../../redux/Reducers/dialogsReducer.js';
 import Reply from './Reply.js';
 import {connect} from 'react-redux';
 

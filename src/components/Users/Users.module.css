@@ -1,0 +1,81 @@
+.wrapper {
+  background: linear-gradient(to top, #55EFCB 0%, #5BCAFF 100%);  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.users {
+	font-weight: 700;
+	font-size:
+}
+
+.user {
+	border: 1px solid white;
+	margin: 0 20px;
+	padding: 10xp 20px; 
+	display: inline-block;
+}
+
+.ava {
+	height: 100px;
+	max-width: 100px;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+.button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 20px;
+	position: relative;
+	color: white;
+	border: 1px solid rgba(255,255,255,.4);
+	background: none;
+	font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.button:before,
+.button:after{
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	box-sizing: border-box;
+}
+.button:before {
+	bottom: 0;
+	left: 0;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+}
+.button:after {
+	top: 0;
+	right: 0;
+	border-right: 1px solid white;
+	border-bottom: 1px solid white;
+	transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;  
+}
+.button:hover:before,
+.button:hover:after {
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+}
+.button:hover:before {transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;}
+.button:hover:after {transition: 0s ease opacity .4s, .2s ease height .4s , .2s ease width .6s;}
+.button:hover {background: rgba(255,255,255,.2);}
+
+
+
+
+
+
+
+
+
+
+
+
+
