@@ -8,6 +8,7 @@ const Navigation = (props) => {
 		<nav className='nav'>
 	        <div className='pf'><NavLink to='/profile'>Profile</NavLink></div>
 	        <div><NavLink to='/dialogs'>Message</NavLink></div>
+	        <div><NavLink to='/users'>Users</NavLink></div>
 	        <div><NavLink to='/news'>News</NavLink></div>
 	        <div><NavLink to='/music'>Music</NavLink></div>
 	        <div><NavLink to='/settings'>Settings</NavLink></div>
