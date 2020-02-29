@@ -1,19 +1,18 @@
 import React from 'react';
 import s from './Users.module.css';
 import * as axios from 'axios';
-import userPhoto from '../../assets/images/anonym.png'
+import userPhoto from '../../assets/images/anonym.png';
 
 class Users extends React.Component {
 
-	constructor(props) {
-		super(props);
+	componentDidMount() {
+
 		if (this.props.users.length === 0) {
 			axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
 				this.props.setUsers(response.data.items)
 			})
 		};
-
-	}
+	};
 
 	render() {
 			return <div className={s.wrapper}>
@@ -44,7 +43,7 @@ class Users extends React.Component {
 			}
 			</div>
 	}
-}
+};
 
 
 export default Users;
