@@ -1,5 +1,8 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import PreLoader from '../../Users/Preloader/Preloader.js';
+import lookingForAJob from '../../../assets/images/lookingForAJob.jpg';
+import myJob from '../../../assets/images/myJob.jpg';
 
 
 const ProfileInfo = (props) => {
@@ -14,8 +17,23 @@ const ProfileInfo = (props) => {
 		let text = newPostElement.current.value
 		props.updateNewPostText(text)
 	}
-	return (
+
+	if (!props.profile) {return <PreLoader />} 
+	else { return (
 		<div className={s.posts}>
+			<div className={s.profile}>
+				<div className={s.infoAboutMe}>
+					<div><img className={s.photo} src={props.profile.photos.large || props.profile.photos.small} alt={props.profile.fullName}/></div>
+					<div className={s.fullName}>{props.profile.fullName}</div>
+					<div className={s.aboutMe}>{props.profile.aboutMe}</div>
+				</div>
+				<div className={s.aboutJob}>
+					<div>{(props.profile.lookingForAJob == true) ? 
+						<img className={s.jobImg} src={lookingForAJob} /> : 
+						<img className={s.jobImg} src={myJob} />}</div>
+					<div className={s.jobDescripton}>{props.profile.lookingForAJobDescription}</div>
+				</div>
+			</div>
 			<div>My Post</div>
 			<div>Write a new post</div>
 			<div className={s.text}>
@@ -26,7 +44,7 @@ const ProfileInfo = (props) => {
 				</div>
 			</div>
 		</div>
-	)
+	)}
 }
 
 export default ProfileInfo
