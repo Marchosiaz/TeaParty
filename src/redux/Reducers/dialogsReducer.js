@@ -37,8 +37,8 @@ const dialogsReducer = (state = initialState, action) => {
 };
 
 
-export const recordingNewMessageActionCreator = (message) => ({type: RECORDING_NEW_MESSAGE_TO_STORE, message: message})
+export const recordingNewMessage = (message) => ({type: RECORDING_NEW_MESSAGE_TO_STORE, message: message})
 
-export const addNewMessageActionCreator = () => ({type: ADD_MY_MESSAGE})
+export const addNewMessage = () => ({type: ADD_MY_MESSAGE})
 
 export default dialogsReducer

@@ -1,5 +1,5 @@
 import React from 'react';
-import {recordingNewMessageActionCreator, addNewMessageActionCreator} from './../../../../redux/Reducers/dialogsReducer.js';
+import {recordingNewMessage, addNewMessage} from './../../../../redux/Reducers/dialogsReducer.js';
 import Reply from './Reply.js';
 import {connect} from 'react-redux';
 
@@ -9,17 +9,14 @@ let mapStateToProps = (state) => {
 	}
 };
 
-let mapDispatchToProps = (dispatch) => {
-	return {
-		addMessage: () => {dispatch(addNewMessageActionCreator())},
-		recordingNewMessage: (text) => {dispatch(recordingNewMessageActionCreator(text))},
-	}
-};
+let mapDispatchToProps = {
+	recordingNewMessage,
+	addNewMessage,
+}
 
 
-const ReplyContainer = connect(mapStateToProps, mapDispatchToProps)(Reply);
+export default connect(mapStateToProps, mapDispatchToProps)(Reply);
 
-export default ReplyContainer;
 
 
 

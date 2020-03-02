@@ -10,7 +10,7 @@ const Reply = (props) => {
 	};
 
 	let onAddMessage = () => {
-		props.addMessage();
+		props.addNewMessage();
 	};
 	return (
 		<div className={s.reply}>
