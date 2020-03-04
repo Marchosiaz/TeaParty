@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header/Header.js';
+import HeaderContainer from './components/Header/HeaderContainer.js';
 import Navigation from './components/Navigation/Navigation.js';
 import ProfileContainer from './components/Profile/ProfileContainer.js';
 import Dialogs from './components/Dialogs/Dialogs.js';
@@ -15,7 +15,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <Navigation />
         <div className='app-wrapper-content'>
       		<Route path='/profile/:userId?' render={() => <ProfileContainer />}/>

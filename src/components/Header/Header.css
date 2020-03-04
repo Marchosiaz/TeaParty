@@ -7,3 +7,7 @@
   width: 205px;
   height: 80px;
 }
+.currentProfile {
+	float: right;
+}
+.currentProfile a {color: white;}
