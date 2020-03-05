@@ -4,13 +4,13 @@ import {NavLink} from 'react-router-dom';
 
 
 const Header = (props) => {
-	debugger;
 	return (
 		<header className='header'>
 			<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3myZqEt-Uxm4mMDA9jt5VIEDupimZjJLsGI7qox20J-8Q8Ptc'/>
 			<div className='currentProfile'>
 			{ (props.isAuth === true) ? props.login : 
-				<NavLink to='/login'>Login</NavLink>}
+				<NavLink to='/login'>Login</NavLink>
+			}
 			</div>
 		</header>
 
