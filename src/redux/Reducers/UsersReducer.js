@@ -1,3 +1,5 @@
+import usersAPI from '../../api/api.js';
+
 const TOGGLE_FOLLOW = 'TOGGLE-FOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -54,6 +56,40 @@ export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, current
 export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingInProgress = (id) => ({type: TOGGLE_FOLLOWING_IN_PROGRESS, id})
+
+export const getUsers = (currentPage, pageSize) => {
+	return (dispatch) => {
+			dispatch(toggleIsFetching(true))
+			usersAPI.getUsers(currentPage, pageSize).then(data => {
+				dispatch(toggleIsFetching(false))
+				dispatch(setUsers(data.items))
+				dispatch(setTotalCount(data.totalCount))})
+	}
+}
+
+export const unfollow = (id) => {
+	return (dispatch) => {
+		dispatch(toggleFollowingInProgress())
+		usersAPI.unFollow(id).then(data => {
+			if (data.resultCode === 0) {
+				dispatch(toggleFollow(id))
+				dispatch(toggleFollowingInProgress())
+			}
+		})
+	}
+}
+
+export const follow = (id) => {
+	return (dispatch) => {
+		dispatch(toggleFollowingInProgress())
+		usersAPI.Follow(id).then(data => {
+			if (data.resultCode === 0) {
+				dispatch(toggleFollow(id))
+				dispatch(toggleFollowingInProgress())
+			}
+		})
+	}
+}
 
 
 export default usersReducer;
