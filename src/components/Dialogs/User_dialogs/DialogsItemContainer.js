@@ -5,12 +5,12 @@ import {connect} from 'react-redux';
 let mapStateToProps = (state) => {
 	return {
 		dialogs: state.dialogsPage.dialogs,
+		isAuth: state.auth.isAuth
 	}
 };
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-
 	}
 };
 

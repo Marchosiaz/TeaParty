@@ -14,11 +14,6 @@ class UsersContainer extends React.Component {
 	};
 
 	changeCurrentPage = (p) => {
-		//this.props.toggleIsFetching(true)
-		//this.props.setCurrentPage(p);
-		//usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-			//this.props.toggleIsFetching(false)
-			//this.props.setUsers(data.items)})
 
 		this.props.getUsers(p, this.props.pageSize)
 	};
@@ -31,9 +26,9 @@ class UsersContainer extends React.Component {
 			totalCount={this.props.totalCount}
 			unfollow={this.props.unfollow}
 			follow={this.props.follow}
-			pageSize={this.props.pageSize} 
-			currentPage={this.props.currentPage} 
+			pageSize={this.props.pageSize}
 			changeCurrentPage={this.changeCurrentPage}
+			currentPage={this.props.currentPage}
 			users={this.props.users}
 			followingInProgress={this.props.followingInProgress}/>}
 		</>
@@ -56,7 +51,7 @@ let mapDispatchToProps = {
 	setCurrentPage,
 	getUsers,
 	unfollow,
-	follow
+	follow,
 };
 
 
