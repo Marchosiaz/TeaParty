@@ -2,11 +2,8 @@ import React from 'react';
 import s from './Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer.js'
 import ProfileInfoContainer from './ProfileInfo/ProfileInfoContainer.js'
-import {Redirect} from 'react-router-dom'
 
 const Profile = (props) => {
-
-	if (props.isAuth === false) return <Redirect to={'/login'}/>
 
 	return (
 	<div className={s.wrapper}>

@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
 			<UserProfile largePhoto={props.profile.photos.large}
 				smallPhoto={props.profile.photos.small} 
 				fullName={props.profile.fullName}
-				aboutMe={props.profile.aboutMe}
+				status={props.profile.aboutMe}
 				lookingForAJob={props.profile.lookingForAJob}
 				lookingForAJobDescription={props.profile.lookingForAJobDescription}/>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import lookingForAJob from '../../../../assets/images/lookingForAJob.jpg';
 import myJob from '../../../../assets/images/myJob.jpg';
 import s from './UserProfile.module.css';
+import ProfileStatus from './ProfileStatus/ProfileStatus.js'
 
 const UserProfile = (props) => {
 	return (
@@ -9,7 +10,7 @@ const UserProfile = (props) => {
 				<div className={s.infoAboutMe}>
 					<div><img className={s.photo} src={props.largePhoto || props.smallPhoto} alt={props.fullName}/></div>
 					<div className={s.fullName}>{props.fullName}</div>
-					<div className={s.aboutMe}>{props.aboutMe}</div>
+					<ProfileStatus status={props.status}/>
 				</div>
 				<div className={s.aboutJob}>
 					<div>{(props.lookingForAJob == true) ? 
