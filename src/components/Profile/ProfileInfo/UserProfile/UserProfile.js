@@ -10,7 +10,7 @@ const UserProfile = (props) => {
 				<div className={s.infoAboutMe}>
 					<div><img className={s.photo} src={props.largePhoto || props.smallPhoto} alt={props.fullName}/></div>
 					<div className={s.fullName}>{props.fullName}</div>
-					<ProfileStatus status={props.status}/>
+					<ProfileStatus updateStatus={props.updateStatus} status={props.status}/>
 				</div>
 				<div className={s.aboutJob}>
 					<div>{(props.lookingForAJob == true) ? 

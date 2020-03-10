@@ -1,4 +1,4 @@
-import usersAPI from '../../api/api.js';
+import {profileAPI} from '../../api/api.js';
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -35,7 +35,7 @@ export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data
 export const getMyProfileInHeader = () => {
 	return (dispatch) => {
 
-			usersAPI.getMyProfileInHeader().then(data => {
+			profileAPI.getMyProfileInHeader().then(data => {
 			if (data.resultCode === 0) {
 				let {id, email, login} = data.data;
 				dispatch(setAuthUserData(id, email, login))
