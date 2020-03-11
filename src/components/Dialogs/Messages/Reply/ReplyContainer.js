@@ -1,5 +1,5 @@
 import React from 'react';
-import {recordingNewMessage, addNewMessage} from './../../../../redux/Reducers/dialogsReducer.js';
+import {addNewMessage} from './../../../../redux/Reducers/dialogsReducer.js';
 import Reply from './Reply.js';
 import {connect} from 'react-redux';
 
@@ -10,7 +10,6 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToProps = {
-	recordingNewMessage,
 	addNewMessage,
 }
 

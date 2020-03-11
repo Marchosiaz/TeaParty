@@ -7,14 +7,7 @@ import UserProfile from './UserProfile/UserProfile.js';
 
 const ProfileInfo = (props) => {
 
-	let newPostElement = React.createRef();
-
-	let onaddPost = () => {props.addPost()}
-
-	let onPostChange = () => {
-		let text = newPostElement.current.value
-		props.updateNewPostText(text)
-	}
+	let onaddPost = (postMessage) => {props.addPost(postMessage)}
 
 	if (!props.profile) { return <PreLoader />} 
 
@@ -27,9 +20,7 @@ const ProfileInfo = (props) => {
 				lookingForAJob={props.profile.lookingForAJob}
 				lookingForAJobDescription={props.profile.lookingForAJobDescription}/>
 
-			<CreatePosts onPostChange={onPostChange} 
-				newPostElement={newPostElement} 
-				newPostText={props.newPostText} 
+			<CreatePosts
 				onaddPost={onaddPost}/>
 			</div>
 }

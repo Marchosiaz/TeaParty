@@ -14,7 +14,6 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = {
 	addPost,
-	updateNewPostText,
 	updateStatus
 }
 

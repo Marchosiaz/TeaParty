@@ -1,22 +1,13 @@
 import React from 'react';
-import s from './Reply.module.css';
+import ReplyForm from './ReplyForm.js';
 
 const Reply = (props) => {
-	let newReplyElement = React.createRef();
 
-	let recordMessage = () => {
-		let text = newReplyElement.current.value;
-		props.recordingNewMessage(text);
-	};
-
-	let onAddMessage = () => {
-		props.addNewMessage();
-	};
+	let addMessage = (data) => {
+		props.addNewMessage(data.textfield)
+	}
 	return (
-		<div className={s.reply}>
-			<textarea onChange={recordMessage} value={props.myMessage} ref={newReplyElement} className={s.text}/>
-			<div><button onClick={onAddMessage} className={s.button}>Send</button></div>
-		</div>
+		<ReplyForm onSubmit={addMessage}/>
 	)
 };										
 

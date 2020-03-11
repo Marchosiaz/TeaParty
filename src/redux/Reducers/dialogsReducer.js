@@ -1,8 +1,6 @@
-const RECORDING_NEW_MESSAGE_TO_STORE = 'RECORDING-NEW-MESSAGE-TO-STORE';
 const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
 
 let initialState = {
-	myMessage: '',
 
 		dialogs: [
 		{id: 22, name: 'Tyoma22', ava:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH'},
@@ -22,13 +20,10 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
 
 	switch (action.type) {
-		case RECORDING_NEW_MESSAGE_TO_STORE:
-			return {...state, myMessage: action.message}
 		case ADD_MY_MESSAGE:
-			let body = state.myMessage;
+			let body = action.message;
 			return {
 				...state,
-				myMessage: '',
 				myMessages: [...state.myMessages, {id: 123, reply: body, ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6xb4svS2NCAlQUGXmFOF6VVvDycCD6EApj2zhEZ7Syv5Ig9l3'}],
 			};
 		default:
@@ -37,8 +32,6 @@ const dialogsReducer = (state = initialState, action) => {
 };
 
 
-export const recordingNewMessage = (message) => ({type: RECORDING_NEW_MESSAGE_TO_STORE, message: message})
-
-export const addNewMessage = () => ({type: ADD_MY_MESSAGE})
+export const addNewMessage = (message) => ({type: ADD_MY_MESSAGE, message})
 
 export default dialogsReducer
