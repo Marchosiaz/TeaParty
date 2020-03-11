@@ -3,7 +3,7 @@ import Header from './Header.js';
 import {connect} from 'react-redux';
 import usersAPI from '../../api/api.js'; 
 import {setAuthUserData, getMyProfileInHeader} from '../../redux/Reducers/authReducer.js';
-import Preloader from '../Users/Preloader/Preloader.js';
+import Preloader from '../Common/Preloader/Preloader.js';
 
 class HeaderContainer extends React.Component {
 

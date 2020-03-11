@@ -1,0 +1,18 @@
+.textareacss {
+  width: 99%;
+  height: 150px;
+  resize: none;
+}
+
+.error
+{
+	border: 3px solid red;
+}
+
+span
+{
+	color: red;
+}
+.input input {
+
+}

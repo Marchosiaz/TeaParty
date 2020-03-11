@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
 import CreatePosts from './CreatePosts/CreatePosts.js';
-import PreLoader from '../../Users/Preloader/Preloader.js';
+import PreLoader from '../../Common/Preloader/Preloader.js';
 import UserProfile from './UserProfile/UserProfile.js';
 
 
