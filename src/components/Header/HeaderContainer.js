@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header.js';
 import {connect} from 'react-redux';
 import usersAPI from '../../api/api.js'; 
-import {setAuthUserData, getMyProfileInHeader} from '../../redux/Reducers/authReducer.js';
+import {setAuthUserData, getMyProfileInHeader, LogOut} from '../../redux/Reducers/authReducer.js';
 import Preloader from '../Common/Preloader/Preloader.js';
 
 class HeaderContainer extends React.Component {
@@ -29,7 +29,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = {
 	setAuthUserData,
-	getMyProfileInHeader
+	getMyProfileInHeader,
+	LogOut
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

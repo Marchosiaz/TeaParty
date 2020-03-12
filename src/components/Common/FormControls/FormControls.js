@@ -22,6 +22,6 @@ export const Input = ({input, meta, ...props}) => {
 		<div>
 			<input className={(hasError) ? s.input + ' ' + s.error : s.input} {...input} {...props}/>
 		</div>
-		{hasError && <span>Max length of symbols is 50</span>}
+		{hasError && <span>Field is Required</span>}
 	</div>
 }

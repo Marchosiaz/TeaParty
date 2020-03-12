@@ -9,7 +9,7 @@ import UsersContainer from './components/Users/UsersContainer.js';
 import News from './components/News/News.js';
 import Music from './components/Music/Music.js';
 import Settings from './components/Settings/Settings.js';
-import Login from './components/Login/Login.js';
+import LoginContainer from './components/Login/LoginContainer.js';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 const App = (props) => {
@@ -21,7 +21,7 @@ const App = (props) => {
         <div className='app-wrapper-content'>
       		<Route path='/profile/:userId?' render={() => <ProfileContainer />}/>
           <Route path='/dialogs' render={() => <Dialogs />}/>
-          <Route path='/login' render={() => <Login />}/>
+          <Route path='/login' render={() => <LoginContainer />}/>
           <Route path='/users' render={() => <UsersContainer />}/>
           <Route path='/news' render={() => <News />}/>
           <Route path='/music' render={() => <Music />}/>

@@ -1,4 +1,4 @@
-import {profileAPI} from '../../api/api.js';
+import {profileAPI, authAPI} from '../../api/api.js';
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -20,8 +20,7 @@ const authReducer = (state = initialState, action) => {
 		case SET_USER_DATA:
 			return {
 				...state,
-				...action.data,
-				isAuth: true,
+				...action.payload,
 			}
 
 		default:
@@ -30,19 +29,49 @@ const authReducer = (state = initialState, action) => {
 	};
 };
 
-export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}});
+export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth}});
 
 export const getMyProfileInHeader = () => {
 	return (dispatch) => {
 
-			profileAPI.getMyProfileInHeader().then(data => {
+			profileAPI.getMyProfileHeader().then(data => {
 			if (data.resultCode === 0) {
 				let {id, email, login} = data.data;
-				dispatch(setAuthUserData(id, email, login))
+				dispatch(setAuthUserData(id, email, login, true))
 			}
 		})
 
 		}
 }
+
+export const LoginUpdate = (email, password, rememberMe) => {
+
+	return (dispatch) => {
+
+			authAPI.login(email, password, rememberMe).then(response => {
+			if (response.data.resultCode === 0) {
+				dispatch(getMyProfileInHeader())
+			} else {
+				alert("Incorrect Email or Password")
+			}
+		})
+
+		}
+}
+
+export const LogOut = () => {
+
+	return (dispatch) => {
+
+			authAPI.logout().then(response => {
+			if (response.data.resultCode === 0) {
+				dispatch(setAuthUserData(null, null, null, false))
+			}
+		})
+
+		}
+}
+
+
 
 export default authReducer;

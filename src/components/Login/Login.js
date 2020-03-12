@@ -3,13 +3,14 @@ import s from './Login.module.css';
 import {Field, reduxForm} from 'redux-form';
 import {requiredField, maxLengthInLoginCreator} from '../../utils/validators/validators.js';
 import {Input} from '../Common/FormControls/FormControls.js';
+import {Redirect} from 'react-router-dom'
 
-const maxLength = maxLengthInLoginCreator(20);
+const maxLength = maxLengthInLoginCreator(30);
 
 const LoginForm = (props) => {
 	return <div>
 		<form onSubmit={props.handleSubmit}>
-			<div><Field component={Input} name={'login'} placeholder={'login'} validate={[requiredField, maxLength]}/></div>
+			<div><Field type={'email'} component={Input} name={'email'} placeholder={'login'} validate={[requiredField, maxLength]}/></div>
 			<div><Field component={Input} validate={[requiredField, maxLength]}  name={'password'} type='password' placeholder={'password'}/></div>
 			<div><Field component={'input'} name={'rememberMe'} type={'checkbox'}/></div>Remember me
 			<div><button>login</button></div>
@@ -25,7 +26,11 @@ const LoginReduxForm = reduxForm({
 const Login = (props) => {
 
 	const onSubmit = (formData) => {
-		console.log(formData)
+		props.LoginUpdate(formData.email, formData.password, formData.rememberMe)
+	}
+
+	if (props.isAuth) {
+		return <Redirect to={"profile"} />
 	}
 
 	return <div>
