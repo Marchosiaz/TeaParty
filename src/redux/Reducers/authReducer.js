@@ -35,7 +35,7 @@ export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DA
 export const getMyProfileInHeader = () => {
 	return (dispatch) => {
 
-			profileAPI.getMyProfileHeader().then(data => {
+			return profileAPI.getMyProfileHeader().then(data => {
 			if (data.resultCode === 0) {
 				let {id, email, login} = data.data;
 				dispatch(setAuthUserData(id, email, login, true))
@@ -53,7 +53,7 @@ export const LoginUpdate = (email, password, rememberMe) => {
 			if (response.data.resultCode === 0) {
 				dispatch(getMyProfileInHeader())
 			} else {
-				let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : 'Uhm...Something is wrong'
+				let errorMessage = response.data.messages.length > 0 ?  response.data.messages[0] : 'Uhm...Something is wrong'
 				dispatch(stopSubmit('login', {_error: errorMessage}))
 			}
 		})
