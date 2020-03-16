@@ -1,4 +1,5 @@
 import {profileAPI, authAPI} from '../../api/api.js';
+import {stopSubmit} from 'redux-form';
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -52,7 +53,8 @@ export const LoginUpdate = (email, password, rememberMe) => {
 			if (response.data.resultCode === 0) {
 				dispatch(getMyProfileInHeader())
 			} else {
-				alert("Incorrect Email or Password")
+				let errorMessage = response.data.messages.length > 0 ? response.data.messages[0] : 'Uhm...Something is wrong'
+				dispatch(stopSubmit('login', {_error: errorMessage}))
 			}
 		})
 

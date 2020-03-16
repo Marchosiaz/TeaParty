@@ -1,0 +1,9 @@
+.error {
+	border: 3px red solid;
+	color: red;
+	background-color: white;
+}
+
+.error p {
+	text-align: center;
+}

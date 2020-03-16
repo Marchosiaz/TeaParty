@@ -11,8 +11,9 @@ const LoginForm = (props) => {
 	return <div>
 		<form onSubmit={props.handleSubmit}>
 			<div><Field type={'email'} component={Input} name={'email'} placeholder={'login'} validate={[requiredField, maxLength]}/></div>
-			<div><Field component={Input} validate={[requiredField, maxLength]}  name={'password'} type='password' placeholder={'password'}/></div>
+			<div><Field component={Input} validate={[requiredField]}  name={'password'} type='password' placeholder={'password'}/></div>
 			<div><Field component={'input'} name={'rememberMe'} type={'checkbox'}/></div>Remember me
+			{props.error && <div className={s.error}><p>{props.error}</p></div>}
 			<div><button>login</button></div>
 		</form>
 	</div>
