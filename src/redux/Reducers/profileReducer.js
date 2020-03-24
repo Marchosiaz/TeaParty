@@ -1,8 +1,9 @@
 import {profileAPI} from '../../api/api.js';
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const CHANGE_PROFILE_STATUS = 'CHANGE-PROFILE-STATUS';
+const ADD_POST = 'profilePage/ADD-POST';
+const SET_USER_PROFILE = 'profilePage/SET-USER-PROFILE';
+const CHANGE_PROFILE_STATUS = 'profilePage/CHANGE-PROFILE-STATUS';
+const DELETE_POST = 'profilePage/DELETE-POST'
 
 let initialState = {
 	profile: null,
@@ -28,6 +29,13 @@ const profileReducer = (state = initialState, action) => {
 
 		case CHANGE_PROFILE_STATUS:
 			return {...state, status: action.status}
+
+		case DELETE_POST:
+			return {
+				...state,
+				posts: state.posts.filter(p => p.id != action.id)
+			}
+
 		default: 
 			return state;
 	};
@@ -36,30 +44,28 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = (postMessage) => ({type: ADD_POST, postMessage});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const changeProfileStatus = (status) => ({type: CHANGE_PROFILE_STATUS, status})
+export const deletePost = (id) => ({type: DELETE_POST, id})
 
 export const setUserInProfilePage = (id) => {
-	return (dispatch) => {
-		profileAPI.setUserInProfilePage(id).then(data => {
-			dispatch(setUserProfile(data))
-		})
+	return async (dispatch) => {
+		let data = await profileAPI.setUserInProfilePage(id)
+		dispatch(setUserProfile(data))
 	}
 }
 
 export const getStatus = (id) => {
-	return (dispatch) => {
-		profileAPI.getStatus(id).then(response => {
-			dispatch(changeProfileStatus(response.data))
-		})
+	return async (dispatch) => {
+		let response = await profileAPI.getStatus(id);
+		dispatch(changeProfileStatus(response.data))
 	}
 }
 
 export const updateStatus = (status) => {
-	return (dispatch) => {
-		profileAPI.updateStatus(status).then(response => {
-			if (response.data.resultCode === 0) {
-				dispatch(changeProfileStatus(status))
-			}
-		})
+	return async (dispatch) => {
+		let response = await profileAPI.updateStatus(status);
+		if (response.data.resultCode === 0) {
+			dispatch(changeProfileStatus(status))
+		}	
 	}
 }
 

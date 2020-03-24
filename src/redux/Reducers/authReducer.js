@@ -1,7 +1,7 @@
 import {profileAPI, authAPI} from '../../api/api.js';
 import {stopSubmit} from 'redux-form';
 
-const SET_USER_DATA = 'SET-USER-DATA';
+const SET_USER_DATA = 'auth/SET-USER-DATA';
 
 
 let initialState = {
@@ -33,45 +33,42 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth}});
 
 export const getMyProfileInHeader = () => {
-	return (dispatch) => {
+	return async (dispatch) => {
 
-			return profileAPI.getMyProfileHeader().then(data => {
-			if (data.resultCode === 0) {
-				let {id, email, login} = data.data;
-				dispatch(setAuthUserData(id, email, login, true))
-			}
-		})
+		let data = await profileAPI.getMyProfileHeader();
 
+		if (data.resultCode === 0) {
+			let {id, email, login} = data.data;
+			dispatch(setAuthUserData(id, email, login, true))
 		}
+	}
 }
 
 export const LoginUpdate = (email, password, rememberMe) => {
 
-	return (dispatch) => {
+	return async (dispatch) => {
 
-			authAPI.login(email, password, rememberMe).then(response => {
-			if (response.data.resultCode === 0) {
-				dispatch(getMyProfileInHeader())
-			} else {
-				let errorMessage = response.data.messages.length > 0 ?  response.data.messages[0] : 'Uhm...Something is wrong'
-				dispatch(stopSubmit('login', {_error: errorMessage}))
-			}
-		})
+		let response = await authAPI.login(email, password, rememberMe);
 
+		if (response.data.resultCode === 0) {
+			dispatch(getMyProfileInHeader())
+		} else {
+			let errorMessage = response.data.messages.length > 0 ?  response.data.messages[0] : 'Uhm...Something is wrong'
+			dispatch(stopSubmit('login', {_error: errorMessage}))
 		}
+	}
 }
 
 export const LogOut = () => {
 
-	return (dispatch) => {
+	return async (dispatch) => {
 
-			authAPI.logout().then(response => {
-			if (response.data.resultCode === 0) {
-				dispatch(setAuthUserData(null, null, null, false))
-			}
-		})
+		let response = await authAPI.logout();
 
+		if (response.data.resultCode === 0) {
+			dispatch(setAuthUserData(null, null, null, false))
 		}
+	}
 }
 
 
