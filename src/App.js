@@ -16,6 +16,8 @@ import Settings from './components/Settings/Settings.js';
 import LoginContainer from './components/Login/LoginContainer.js';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {initializeApp} from './redux/Reducers/AppReducer.js';
+import store from './redux/reduxStore.js';
+import {Provider} from 'react-redux';
 
 class App extends React.Component {
 
@@ -56,7 +58,17 @@ let mapDispatchToProps = {
      initializeApp, 
 }
 
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
 )(App)
+
+const MainApp = (props) => {
+  return <BrowserRouter>
+    <Provider store={store}> 
+      <AppContainer />
+    </Provider>
+  </BrowserRouter>
+}
+
+export default MainApp

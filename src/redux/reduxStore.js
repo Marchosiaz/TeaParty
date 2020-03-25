@@ -1,4 +1,5 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import profileReducer from './Reducers/profileReducer.js';
 import dialogsReducer from './Reducers/dialogsReducer.js';
 import navigationReducer from './Reducers/NavigationReducer.js';
@@ -18,8 +19,11 @@ let reducersBunch = combineReducers({
 	form: formReducer
 });
 
-let store = createStore(reducersBunch, applyMiddleware(thunk));
+//let store = createStore(reducersBunch, applyMiddleware(thunk));
 
+const store = createStore(reducersBunch, composeWithDevTools(
+  applyMiddleware(thunk),
+));
 
 
 export default store;
