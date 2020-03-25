@@ -6,7 +6,7 @@ class ProfileStatus extends React.Component {
 
 	state = {
 		editMode: false,
-		status: 2,
+		status: this.props.status,
 		isPreloader: false
 	}
 
