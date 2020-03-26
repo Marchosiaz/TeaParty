@@ -7,7 +7,7 @@ import {User} from './User/User.js';
 const Users = (props) => {
 
 	return <div>
-			<div>Users</div>
+			<div className={s.title}>Users</div>
 			<Paginator 
 				totalCount={props.totalCount} 
 				pageSize={props.pageSize} 
