@@ -8,18 +8,28 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect.js';
 
 class ProfileContainer extends React.Component {
 
-	componentDidMount() {
+	refreshProfile() {
 		let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 2;
+            userId = 2
         }
 
 		this.props.setUserInProfilePage(userId);
 		this.props.getStatus(userId);
 	}
 
+	componentDidMount() {
+		this.refreshProfile();
+	}
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		if (this.props.match.params.userId != prevProps.match.userId) {
+			this.refreshProfile();
+		}
+	}
+
 	render() {
-		return <Profile />
+		return <Profile {...this.props}/>
 	}
 }
 

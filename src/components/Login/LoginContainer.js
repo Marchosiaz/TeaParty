@@ -6,7 +6,8 @@ import {LoginUpdate} from '../../redux/Reducers/authReducer.js';
 
 let mapStateToProps = (state) => {
 	return {
-		isAuth: state.auth.isAuth
+		isAuth: state.auth.isAuth,
+		captchaURL: state.auth.captchaURL
 	}
 }
 

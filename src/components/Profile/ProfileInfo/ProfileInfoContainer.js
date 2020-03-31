@@ -1,8 +1,7 @@
 import React from 'react';
-import {addPost, updateNewPostText} from './../../../redux/Reducers/profileReducer.js';
+import {addPost, updateStatus, savePhoto} from './../../../redux/Reducers/profileReducer.js';
 import ProfileInfo from './ProfileInfo.js';
 import {connect} from 'react-redux'
-import {updateStatus} from '../../../redux/Reducers/profileReducer.js'
 
 let mapStateToProps = (state) => {
 	return {
@@ -14,7 +13,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = {
 	addPost,
-	updateStatus
+	updateStatus,
+	savePhoto
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileInfo);

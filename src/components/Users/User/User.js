@@ -14,12 +14,20 @@ export const User = ({user, followingInProgress, unfollow, follow, ...props}) =>
 				</div>
 					<div>
 						{
-							(user.followed) ? 
-							<button disabled={props.followingInProgress} onClick={() => props.unfollow(user.id)}
+							(user.followed) 
 
-								className={s.button}>Unfollow</button> : 
-							<button disabled={props.followingInProgress} onClick={() => props.follow(user.id)} 
+							? 
 
+							<button 
+								disabled={props.followingInProgress} 
+								onClick={() => unfollow(user.id)} 
+								className={s.button}>Unfollow</button> 
+
+							: 
+
+							<button 
+								disabled={props.followingInProgress} 
+								onClick={() => follow(user.id)} 
 								className={s.button}>Follow</button>
 						}
 					</div>

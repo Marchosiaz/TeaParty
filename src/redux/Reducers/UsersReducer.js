@@ -60,33 +60,45 @@ export const toggleFollowingInProgress = (id) => ({type: TOGGLE_FOLLOWING_IN_PRO
 export const getUsers = (currentPage, pageSize) => {
 	return async (dispatch) => {
 		dispatch(toggleIsFetching(true));
-		let data = await usersAPI.getUsers(currentPage, pageSize);
-		dispatch(toggleIsFetching(false));
-		dispatch(setUsers(data.items));
-		dispatch(setCurrentPage(currentPage));
-		dispatch(setTotalCount(data.totalCount));
+		try {
+			let data = await usersAPI.getUsers(currentPage, pageSize);
+			dispatch(toggleIsFetching(false));
+			dispatch(setUsers(data.items));
+			dispatch(setCurrentPage(currentPage));
+			dispatch(setTotalCount(data.totalCount));
+		} catch(error) {
+			alert('Error in UsersReducer.js/getUsers')
+		}
 	};
 };
 
 export const unfollow = (id) => {
 	return async (dispatch) => {
 		dispatch(toggleFollowingInProgress());
-		let data = await usersAPI.unFollow(id);
-		if (data.resultCode === 0) {
+		try {
+			let data = await usersAPI.unFollow(id);
+			if (data.resultCode === 0) {
 			dispatch(toggleFollow(id));
 			dispatch(toggleFollowingInProgress());
-		};
+			};
+		} catch(error) {
+			alert('Error in UsersReducer.js/unfollow')
+		}
 	};
 };
 
 export const follow = (id) => {
 	return async (dispatch) => {
 		dispatch(toggleFollowingInProgress());
-		let data = await usersAPI.Follow(id);
-		if (data.resultCode === 0) {
+		try {
+			let data = await usersAPI.Follow(id);
+			if (data.resultCode === 0) {
 			dispatch(toggleFollow(id));
 			dispatch(toggleFollowingInProgress());
-		};
+			};
+		} catch(error) {
+			alert('Error in UsersReducer.js/follow')
+		}
 	};
 };
 
