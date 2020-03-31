@@ -1,11 +1,11 @@
-import {createSelector} from 'reselect'
+import { createSelector } from 'reselect'
 
 export const getUsersFromState = (state) => {
 	return state.usersPage.users
 }
 
 //export const getUsersSuperSelector = createSelector(getUsersFromState, (users) => {
-	//return users.filter( u => true)
+//return users.filter( u => true)
 //})
 
 export const getCurrentPage = (state) => {

@@ -1,4 +1,4 @@
-import {getMyProfileInHeader} from './authReducer.js';
+import { getMyProfileInHeader } from './authReducer.js';
 
 const SET_INITIALIZED = 'SET-INITIALIZED';
 
@@ -7,8 +7,8 @@ let initialState = {
 	initialized: false
 };
 
-const AppReducer = (state=initialState, action) => {
-	switch(action.type) {
+const AppReducer = (state = initialState, action) => {
+	switch (action.type) {
 		case SET_INITIALIZED:
 			return {
 				...state,
@@ -19,7 +19,7 @@ const AppReducer = (state=initialState, action) => {
 	}
 }
 
-export const setInitialized = () => ({type: SET_INITIALIZED});
+export const setInitialized = () => ({ type: SET_INITIALIZED });
 
 export const initializeApp = () => (dispatch) => {
 	let promise = dispatch(getMyProfileInHeader());

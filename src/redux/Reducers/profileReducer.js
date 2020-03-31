@@ -1,4 +1,4 @@
-import {profileAPI} from '../../api/api.js';
+import { profileAPI } from '../../api/api.js';
 
 const ADD_POST = 'profilePage/ADD-POST';
 const SET_USER_PROFILE = 'profilePage/SET-USER-PROFILE';
@@ -10,26 +10,26 @@ let initialState = {
 	profile: null,
 	status: 'I have no status',
 	posts: [
-		{id: 1, message: 'Hello', countLike:'12'},
-		{id: 2, message: 'Hex', countLike:'97'},],
+		{ id: 1, message: 'Hello', countLike: '12' },
+		{ id: 2, message: 'Hex', countLike: '97' },],
 
 };
 
 
 const profileReducer = (state = initialState, action) => {
 
-	switch(action.type) {
+	switch (action.type) {
 		case ADD_POST:
-			let newpost = {id: 32,message: action.postMessage,countLike: 0}
+			let newpost = { id: 32, message: action.postMessage, countLike: 0 }
 			return {
 				...state,
 				posts: [...state.posts, newpost],
 			};
 		case SET_USER_PROFILE:
-			return {...state, profile: action.profile};
+			return { ...state, profile: action.profile };
 
 		case CHANGE_PROFILE_STATUS:
-			return {...state, status: action.status}
+			return { ...state, status: action.status }
 
 		case DELETE_POST:
 			return {
@@ -40,19 +40,19 @@ const profileReducer = (state = initialState, action) => {
 		case SAVE_PHOTO_SUCCESS:
 			return {
 				...state,
-				profile: {...state.profile, photos: action.photos}
+				profile: { ...state.profile, photos: action.photos }
 			}
 
-		default: 
+		default:
 			return state;
 	};
 };
 
-export const addPost = (postMessage) => ({type: ADD_POST, postMessage});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
-export const changeProfileStatus = (status) => ({type: CHANGE_PROFILE_STATUS, status})
-export const deletePost = (id) => ({type: DELETE_POST, id})
-export const savePhotoSuccess = (photos) => ({type: SAVE_PHOTO_SUCCESS, photos})
+export const addPost = (postMessage) => ({ type: ADD_POST, postMessage });
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
+export const changeProfileStatus = (status) => ({ type: CHANGE_PROFILE_STATUS, status })
+export const deletePost = (id) => ({ type: DELETE_POST, id })
+export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
 export const setUserInProfilePage = (id) => {
 	return async (dispatch) => {
@@ -73,7 +73,7 @@ export const updateStatus = (status) => {
 		let response = await profileAPI.updateStatus(status);
 		if (response.data.resultCode === 0) {
 			dispatch(changeProfileStatus(status))
-		}	
+		}
 	}
 }
 
@@ -82,7 +82,7 @@ export const savePhoto = (file) => {
 		let response = await profileAPI.savePhoto(file);
 		if (response.data.resultCode === 0) {
 			dispatch(savePhotoSuccess(response.data.data.photos))
-		}	
+		}
 	}
 }
 
