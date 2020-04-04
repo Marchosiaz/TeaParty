@@ -1,7 +1,7 @@
 import { profileAPI, authAPI, securityAPI } from '../../api/api.js';
 import { stopSubmit } from 'redux-form';
 import { setAuthUserData, setCaptchaURL } from './ActionCreators/AuthActionCreators';
-import { initialStatetype } from './types/types'
+import { initialStatetype } from './types/AuthTypes'
 
 export const SET_USER_DATA = 'auth/SET-USER-DATA';
 export const SET_CAPTCHA_URL = 'auth/SET-CAPTCHA-URL';

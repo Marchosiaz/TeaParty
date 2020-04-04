@@ -1,5 +1,5 @@
 import { SET_USER_DATA, SET_CAPTCHA_URL } from '../authReducer';
-import { setAuthUserDataType, setCaptchaURLType } from '../types/types';
+import { setAuthUserDataType, setCaptchaURLType } from '../types/AuthTypes';
 
 
 export const setAuthUserData = (id: number | null, email: string | null, login: string | null, isAuth: boolean): setAuthUserDataType =>
