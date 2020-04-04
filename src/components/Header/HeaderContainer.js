@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from './Header.js';
-import {connect} from 'react-redux';
-import usersAPI from '../../api/api.js'; 
-import {setAuthUserData, LogOut} from '../../redux/Reducers/authReducer.js';
-import Preloader from '../Common/Preloader/Preloader.js';
+import { connect } from 'react-redux';
+import { LogOut } from '../../redux/Reducers/authReducer.tsx';
+import { setAuthUserData } from '../../redux/Reducers/ActionCreators/AuthActionCreators'
 
 class HeaderContainer extends React.Component {
 
 	render() {
-		return <Header {...this.props}/>
+		return <Header {...this.props} />
 
 	};
 };

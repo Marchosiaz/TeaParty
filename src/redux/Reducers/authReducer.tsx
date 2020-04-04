@@ -1,11 +1,12 @@
 import { profileAPI, authAPI, securityAPI } from '../../api/api.js';
 import { stopSubmit } from 'redux-form';
+import { setAuthUserData, setCaptchaURL } from './ActionCreators/AuthActionCreators';
+import { initialStatetype } from './types/types'
 
-const SET_USER_DATA = 'auth/SET-USER-DATA';
-const SET_CAPTCHA_URL = 'auth/SET-CAPTCHA-URL'
+export const SET_USER_DATA = 'auth/SET-USER-DATA';
+export const SET_CAPTCHA_URL = 'auth/SET-CAPTCHA-URL';
 
-
-let initialState = {
+let initialState: initialStatetype = {
 	isFetching: false,
 	userId: null,
 	email: null,
@@ -16,7 +17,7 @@ let initialState = {
 };
 
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state: initialStatetype = initialState, action: any) => {
 
 	switch (action.type) {
 
@@ -38,11 +39,9 @@ const authReducer = (state = initialState, action) => {
 	};
 };
 
-export const setAuthUserData = (id, email, login, isAuth) => ({ type: SET_USER_DATA, payload: { id, email, login, isAuth } });
-export const setCaptchaURL = (captchaURL) => ({ type: SET_CAPTCHA_URL, captchaURL })
 
 export const getMyProfileInHeader = () => {
-	return async (dispatch) => {
+	return async (dispatch: Function) => {
 
 		let data = await profileAPI.getMyProfileHeader();
 
@@ -53,9 +52,9 @@ export const getMyProfileInHeader = () => {
 	}
 }
 
-export const LoginUpdate = (email, password, rememberMe, captcha) => {
+export const LoginUpdate = (email: string, password: any, rememberMe: boolean, captcha: boolean) => {
 
-	return async (dispatch) => {
+	return async (dispatch: Function) => {
 
 		let response = await authAPI.login(email, password, rememberMe, captcha);
 
@@ -73,7 +72,7 @@ export const LoginUpdate = (email, password, rememberMe, captcha) => {
 
 export const LogOut = () => {
 
-	return async (dispatch) => {
+	return async (dispatch: Function) => {
 
 		let response = await authAPI.logout();
 
@@ -85,14 +84,13 @@ export const LogOut = () => {
 
 export const getCaptcha = () => {
 
-	return async (dispatch) => {
+	return async (dispatch: Function) => {
 
 		let response = await securityAPI.getCaptchaURL();
 		dispatch(setCaptchaURL(response.data.url))
 
 	}
 }
-
 
 
 export default authReducer;

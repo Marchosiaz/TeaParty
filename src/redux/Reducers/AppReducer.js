@@ -1,4 +1,4 @@
-import { getMyProfileInHeader } from './authReducer.js';
+import { getMyProfileInHeader } from './authReducer.tsx';
 
 const SET_INITIALIZED = 'SET-INITIALIZED';
 
