@@ -1,6 +1,8 @@
-const ADD_MY_MESSAGE = 'dialogsPage/ADD-MY-MESSAGE';
+import { InitialStateType } from "./types/DialogsTypes";
 
-let initialState = {
+export const ADD_MY_MESSAGE = 'dialogsPage/ADD-MY-MESSAGE';
+
+let initialState: InitialStateType = {
 
 	dialogs: [
 		{ id: 22, name: 'Tyoma22', ava: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRW7RXP7cJBscjNG5CGjzazNFw_ro5jySl5uwMsvKDoPjYFPGAH' },
@@ -17,7 +19,7 @@ let initialState = {
 
 };
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action: any) => {
 
 	switch (action.type) {
 		case ADD_MY_MESSAGE:
@@ -32,6 +34,6 @@ const dialogsReducer = (state = initialState, action) => {
 };
 
 
-export const addNewMessage = (message) => ({ type: ADD_MY_MESSAGE, message })
+//export const addNewMessage = (message: string) => ({ type: ADD_MY_MESSAGE, message })
 
 export default dialogsReducer

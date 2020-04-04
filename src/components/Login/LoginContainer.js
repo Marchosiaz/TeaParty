@@ -1,7 +1,7 @@
 import React from 'redux';
 import { connect } from 'react-redux';
 import Login from './Login.js';
-import { LoginUpdate } from '../../redux/Reducers/authReducer.tsx';
+import { LoginUpdate } from '../../redux/Reducers/authReducer.ts';
 
 
 let mapStateToProps = (state) => {

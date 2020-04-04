@@ -12,7 +12,7 @@ import Music from './components/Music/Music.js';
 import Settings from './components/Settings/Settings.js';
 import LoginContainer from './components/Login/LoginContainer.js';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { initializeApp } from './redux/Reducers/AppReducer.js';
+import { initializeApp } from './redux/Reducers/AppReducer.ts';
 import store from './redux/reduxStore.js';
 import { Provider } from 'react-redux';
 

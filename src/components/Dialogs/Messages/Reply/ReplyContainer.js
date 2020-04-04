@@ -1,7 +1,7 @@
 import React from 'react';
-import {addNewMessage} from './../../../../redux/Reducers/dialogsReducer.js';
+import { addNewMessage } from './../../../../redux/Reducers/ActionCreators/DialogsActionCreators';
 import Reply from './Reply.js';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
 	return {
