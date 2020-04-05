@@ -1,12 +1,15 @@
 import { profileAPI } from '../../api/api.js';
+import { AnyAction } from 'redux';
+import { InitialStateType } from './types/Profiletypes';
+import { setUserProfile, changeProfileStatus, savePhotoSuccess } from './ActionCreators/ProfileActionCreators';
 
-const ADD_POST = 'profilePage/ADD-POST';
-const SET_USER_PROFILE = 'profilePage/SET-USER-PROFILE';
-const CHANGE_PROFILE_STATUS = 'profilePage/CHANGE-PROFILE-STATUS';
-const DELETE_POST = 'profilePage/DELETE-POST';
-const SAVE_PHOTO_SUCCESS = 'profilePage/SAVE-PHOTO-SUCCESS';
+export const ADD_POST = 'profilePage/ADD-POST';
+export const SET_USER_PROFILE = 'profilePage/SET-USER-PROFILE';
+export const CHANGE_PROFILE_STATUS = 'profilePage/CHANGE-PROFILE-STATUS';
+export const DELETE_POST = 'profilePage/DELETE-POST';
+export const SAVE_PHOTO_SUCCESS = 'profilePage/SAVE-PHOTO-SUCCESS';
 
-let initialState = {
+let initialState: InitialStateType = {
 	profile: null,
 	status: 'I have no status',
 	posts: [
@@ -16,7 +19,7 @@ let initialState = {
 };
 
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action: AnyAction) => {
 
 	switch (action.type) {
 		case ADD_POST:
@@ -34,7 +37,7 @@ const profileReducer = (state = initialState, action) => {
 		case DELETE_POST:
 			return {
 				...state,
-				posts: state.posts.filter(p => p.id != action.id)
+				posts: state.posts.filter(p => p.id !== action.id)
 			};
 
 		case SAVE_PHOTO_SUCCESS:
@@ -48,28 +51,22 @@ const profileReducer = (state = initialState, action) => {
 	};
 };
 
-export const addPost = (postMessage) => ({ type: ADD_POST, postMessage });
-export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
-export const changeProfileStatus = (status) => ({ type: CHANGE_PROFILE_STATUS, status })
-export const deletePost = (id) => ({ type: DELETE_POST, id })
-export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos })
-
-export const setUserInProfilePage = (id) => {
-	return async (dispatch) => {
+export const setUserInProfilePage = (id: null | number) => {
+	return async (dispatch: Function) => {
 		let data = await profileAPI.setUserInProfilePage(id)
 		dispatch(setUserProfile(data))
 	}
 }
 
-export const getStatus = (id) => {
-	return async (dispatch) => {
+export const getStatus = (id: null | number) => {
+	return async (dispatch: Function) => {
 		let response = await profileAPI.getStatus(id);
 		dispatch(changeProfileStatus(response.data))
 	}
 }
 
-export const updateStatus = (status) => {
-	return async (dispatch) => {
+export const updateStatus = (status: null | string) => {
+	return async (dispatch: Function) => {
 		let response = await profileAPI.updateStatus(status);
 		if (response.data.resultCode === 0) {
 			dispatch(changeProfileStatus(status))
@@ -77,8 +74,8 @@ export const updateStatus = (status) => {
 	}
 }
 
-export const savePhoto = (file) => {
-	return async (dispatch) => {
+export const savePhoto = (file: null | string) => {
+	return async (dispatch: Function) => {
 		let response = await profileAPI.savePhoto(file);
 		if (response.data.resultCode === 0) {
 			dispatch(savePhotoSuccess(response.data.data.photos))

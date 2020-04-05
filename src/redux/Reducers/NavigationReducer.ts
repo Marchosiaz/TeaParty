@@ -7,7 +7,7 @@ let initialState = {
 	],
 }
 
-const navigationReducer = (state = initialState, action) => {
+const navigationReducer = (state = initialState, action: any) => {
 	return state
 }
 

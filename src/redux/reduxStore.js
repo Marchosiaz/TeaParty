@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import profileReducer from './Reducers/profileReducer.js';
+import profileReducer from './Reducers/profileReducer';
 import dialogsReducer from './Reducers/dialogsReducer';
-import navigationReducer from './Reducers/NavigationReducer.js';
+import navigationReducer from './Reducers/NavigationReducer';
 import usersReducer from './Reducers/UsersReducer.js';
 import authReducer from './Reducers/authReducer';
 import appReducer from './Reducers/AppReducer';
